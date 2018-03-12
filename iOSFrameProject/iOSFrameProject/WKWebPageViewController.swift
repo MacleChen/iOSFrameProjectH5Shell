@@ -230,8 +230,8 @@ extension WKWebPageViewController {
     func setViewUI() {
         // 设置 webView
         let request: URLRequest?
-        self.pageUrlStr = REQUEST_URL_INIT
-//        self.localPageUrlFilePath = Bundle.main.path(forResource: "testButton.html", ofType: nil)
+//        self.pageUrlStr = REQUEST_URL_INIT
+        self.localPageUrlFilePath = Bundle.main.path(forResource: "testButton.html", ofType: nil)
         if self.localPageUrlFilePath == nil {
             // 加载网页
             request = URLRequest.init(url: URL.init(string: self.pageUrlStr!)!)
