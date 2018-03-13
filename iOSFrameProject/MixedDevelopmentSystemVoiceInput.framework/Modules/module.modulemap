@@ -1,0 +1,6 @@
+framework module MixedDevelopmentSystemVoiceInput {
+  umbrella header "MixedDevelopmentSystemVoiceInput.h"
+
+  export *
+  module * { export * }
+}

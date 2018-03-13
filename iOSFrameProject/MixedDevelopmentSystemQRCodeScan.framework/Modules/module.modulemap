@@ -1,0 +1,6 @@
+framework module MixedDevelopmentSystemQRCodeScan {
+  umbrella header "MixedDevelopmentSystemQRCodeScan.h"
+
+  export *
+  module * { export * }
+}

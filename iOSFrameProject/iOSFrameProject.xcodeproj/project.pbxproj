@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6701F30C2057663F00DFA467 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6701F30A2057663F00DFA467 /* AMapFoundationKit.framework */; };
+		6701F30D2057663F00DFA467 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6701F30B2057663F00DFA467 /* AMapLocationKit.framework */; };
 		673CCF88205654530096FF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673CCF87205654530096FF7F /* AppDelegate.swift */; };
 		673CCF8D205654530096FF7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 673CCF8B205654530096FF7F /* Main.storyboard */; };
 		673CCF8F205654530096FF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 673CCF8E205654530096FF7F /* Assets.xcassets */; };
@@ -16,6 +18,22 @@
 		673CCFBF205655CC0096FF7F /* WKWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673CCFBE205655CC0096FF7F /* WKWebPageViewController.swift */; };
 		673CCFC12056563B0096FF7F /* GlobalPrefixHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673CCFC02056563B0096FF7F /* GlobalPrefixHeader.swift */; };
 		673CCFC3205660360096FF7F /* testButton.html in Resources */ = {isa = PBXBuildFile; fileRef = 673CCFC2205660360096FF7F /* testButton.html */; };
+		673CCFC8205670C80096FF7F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFC7205670C80096FF7F /* Security.framework */; };
+		673CCFCD205671790096FF7F /* MixedDevelopmentSystemDeviceInformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFCC205671790096FF7F /* MixedDevelopmentSystemDeviceInformation.framework */; };
+		673CCFCF20567F760096FF7F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFCE20567F760096FF7F /* JavaScriptCore.framework */; };
+		673CCFD120567F840096FF7F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFD020567F840096FF7F /* SystemConfiguration.framework */; };
+		673CCFD320567F920096FF7F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFD220567F920096FF7F /* CoreTelephony.framework */; };
+		673CCFD520567FA50096FF7F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFD420567FA50096FF7F /* libz.tbd */; };
+		673CCFD720567FB30096FF7F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFD620567FB30096FF7F /* libc++.tbd */; };
+		673CCFDB20567FCE0096FF7F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFDA20567FCE0096FF7F /* libstdc++.6.0.9.tbd */; };
+		673CCFE2205680850096FF7F /* MixedDevelopmentSystemQRCodeScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFDC205680850096FF7F /* MixedDevelopmentSystemQRCodeScan.framework */; };
+		673CCFE3205680850096FF7F /* MixedDevelopmentVoiceLightness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFDD205680850096FF7F /* MixedDevelopmentVoiceLightness.framework */; };
+		673CCFE4205680850096FF7F /* MixedDevelopmentSystemVoiceInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFDE205680850096FF7F /* MixedDevelopmentSystemVoiceInput.framework */; };
+		673CCFE5205680850096FF7F /* MixedDevelopmentCameraAndPhotoAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFDF205680850096FF7F /* MixedDevelopmentCameraAndPhotoAlbum.framework */; };
+		673CCFE6205680850096FF7F /* MixedDevelopmentSystemVideoRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFE0205680850096FF7F /* MixedDevelopmentSystemVideoRecord.framework */; };
+		673CCFED2056830F0096FF7F /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFEA2056830F0096FF7F /* iflyMSC.framework */; };
+		673CCFEF2056834B0096FF7F /* AppInfoSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 673CCFEE2056834B0096FF7F /* AppInfoSet.plist */; };
+		673CCFF12056884B0096FF7F /* MixedDevelopmentGeoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673CCFF02056884B0096FF7F /* MixedDevelopmentGeoLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6701F30A2057663F00DFA467 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		6701F30B2057663F00DFA467 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		673CCF84205654530096FF7F /* iOSFrameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFrameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673CCF87205654530096FF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		673CCF8C205654530096FF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +71,24 @@
 		673CCFBE205655CC0096FF7F /* WKWebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebPageViewController.swift; sourceTree = "<group>"; };
 		673CCFC02056563B0096FF7F /* GlobalPrefixHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalPrefixHeader.swift; sourceTree = "<group>"; };
 		673CCFC2205660360096FF7F /* testButton.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testButton.html; sourceTree = "<group>"; };
+		673CCFC7205670C80096FF7F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		673CCFC9205670E80096FF7F /* iOSFrameProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFrameProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		673CCFCC205671790096FF7F /* MixedDevelopmentSystemDeviceInformation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentSystemDeviceInformation.framework; sourceTree = "<group>"; };
+		673CCFCE20567F760096FF7F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		673CCFD020567F840096FF7F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		673CCFD220567F920096FF7F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		673CCFD420567FA50096FF7F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		673CCFD620567FB30096FF7F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		673CCFD820567FC00096FF7F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		673CCFDA20567FCE0096FF7F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		673CCFDC205680850096FF7F /* MixedDevelopmentSystemQRCodeScan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentSystemQRCodeScan.framework; sourceTree = "<group>"; };
+		673CCFDD205680850096FF7F /* MixedDevelopmentVoiceLightness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentVoiceLightness.framework; sourceTree = "<group>"; };
+		673CCFDE205680850096FF7F /* MixedDevelopmentSystemVoiceInput.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentSystemVoiceInput.framework; sourceTree = "<group>"; };
+		673CCFDF205680850096FF7F /* MixedDevelopmentCameraAndPhotoAlbum.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentCameraAndPhotoAlbum.framework; sourceTree = "<group>"; };
+		673CCFE0205680850096FF7F /* MixedDevelopmentSystemVideoRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentSystemVideoRecord.framework; sourceTree = "<group>"; };
+		673CCFEA2056830F0096FF7F /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		673CCFEE2056834B0096FF7F /* AppInfoSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppInfoSet.plist; sourceTree = "<group>"; };
+		673CCFF02056884B0096FF7F /* MixedDevelopmentGeoLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MixedDevelopmentGeoLocation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +96,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6701F30C2057663F00DFA467 /* AMapFoundationKit.framework in Frameworks */,
+				6701F30D2057663F00DFA467 /* AMapLocationKit.framework in Frameworks */,
+				673CCFF12056884B0096FF7F /* MixedDevelopmentGeoLocation.framework in Frameworks */,
+				673CCFED2056830F0096FF7F /* iflyMSC.framework in Frameworks */,
+				673CCFE2205680850096FF7F /* MixedDevelopmentSystemQRCodeScan.framework in Frameworks */,
+				673CCFE3205680850096FF7F /* MixedDevelopmentVoiceLightness.framework in Frameworks */,
+				673CCFE4205680850096FF7F /* MixedDevelopmentSystemVoiceInput.framework in Frameworks */,
+				673CCFE5205680850096FF7F /* MixedDevelopmentCameraAndPhotoAlbum.framework in Frameworks */,
+				673CCFE6205680850096FF7F /* MixedDevelopmentSystemVideoRecord.framework in Frameworks */,
+				673CCFDB20567FCE0096FF7F /* libstdc++.6.0.9.tbd in Frameworks */,
+				673CCFD720567FB30096FF7F /* libc++.tbd in Frameworks */,
+				673CCFD520567FA50096FF7F /* libz.tbd in Frameworks */,
+				673CCFD320567F920096FF7F /* CoreTelephony.framework in Frameworks */,
+				673CCFD120567F840096FF7F /* SystemConfiguration.framework in Frameworks */,
+				673CCFCF20567F760096FF7F /* JavaScriptCore.framework in Frameworks */,
+				673CCFCD205671790096FF7F /* MixedDevelopmentSystemDeviceInformation.framework in Frameworks */,
+				673CCFC8205670C80096FF7F /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +140,7 @@
 				673CCF9B205654530096FF7F /* iOSFrameProjectTests */,
 				673CCFA6205654530096FF7F /* iOSFrameProjectUITests */,
 				673CCF85205654530096FF7F /* Products */,
+				673CCFC6205670C80096FF7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +198,8 @@
 		673CCFB7205654BD0096FF7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				673CCFEE2056834B0096FF7F /* AppInfoSet.plist */,
+				673CCFC9205670E80096FF7F /* iOSFrameProject-Bridging-Header.h */,
 				673CCFC2205660360096FF7F /* testButton.html */,
 				673CCF93205654530096FF7F /* Info.plist */,
 				673CCFC02056563B0096FF7F /* GlobalPrefixHeader.swift */,
@@ -193,6 +251,31 @@
 				673CCF8B205654530096FF7F /* Main.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		673CCFC6205670C80096FF7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6701F30A2057663F00DFA467 /* AMapFoundationKit.framework */,
+				6701F30B2057663F00DFA467 /* AMapLocationKit.framework */,
+				673CCFF02056884B0096FF7F /* MixedDevelopmentGeoLocation.framework */,
+				673CCFEA2056830F0096FF7F /* iflyMSC.framework */,
+				673CCFDF205680850096FF7F /* MixedDevelopmentCameraAndPhotoAlbum.framework */,
+				673CCFDC205680850096FF7F /* MixedDevelopmentSystemQRCodeScan.framework */,
+				673CCFE0205680850096FF7F /* MixedDevelopmentSystemVideoRecord.framework */,
+				673CCFDE205680850096FF7F /* MixedDevelopmentSystemVoiceInput.framework */,
+				673CCFDD205680850096FF7F /* MixedDevelopmentVoiceLightness.framework */,
+				673CCFDA20567FCE0096FF7F /* libstdc++.6.0.9.tbd */,
+				673CCFD820567FC00096FF7F /* libstdc++.tbd */,
+				673CCFD620567FB30096FF7F /* libc++.tbd */,
+				673CCFD420567FA50096FF7F /* libz.tbd */,
+				673CCFD220567F920096FF7F /* CoreTelephony.framework */,
+				673CCFD020567F840096FF7F /* SystemConfiguration.framework */,
+				673CCFCE20567F760096FF7F /* JavaScriptCore.framework */,
+				673CCFCC205671790096FF7F /* MixedDevelopmentSystemDeviceInformation.framework */,
+				673CCFC7205670C80096FF7F /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673CCFEF2056834B0096FF7F /* AppInfoSet.plist in Resources */,
 				673CCF92205654530096FF7F /* LaunchScreen.storyboard in Resources */,
 				673CCF8F205654530096FF7F /* Assets.xcassets in Resources */,
 				673CCFC3205660360096FF7F /* testButton.html in Resources */,
@@ -501,10 +585,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8GLCSQEVRZ;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iOSFrameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchang.BigDataH5First;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSFrameProject/iOSFrameProject-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -517,10 +606,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8GLCSQEVRZ;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iOSFrameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchang.BigDataH5First;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSFrameProject/iOSFrameProject-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

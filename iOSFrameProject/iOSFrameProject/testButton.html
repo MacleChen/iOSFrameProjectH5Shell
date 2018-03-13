@@ -5,16 +5,231 @@
         <title>test</title>
         
         <script type="text/javascript">
-        	function getValueTest() {
-                /// 将传给 native 的信息包含在 url 请求里面
-                
-                window.webkit.messageHandlers.iOS.postMessage("SystemDeviceInformation");
-        	}
+        /****** 框架request调用方法 ******/
+        // 1. 获取定位信息
+        function requestFrameLocation() {
+            window.webkit.messageHandlers.iOS.postMessage("GDDTASingleLocalize");
+        }
+        
+        // 2. 拍照或相册获取图片
+        // 备注：调用系统的相册和拍照功能: CameraAndPhotoAlbum,调用系统拍照功能：SystemCamera,调用系统相册功能：SystemPhotoAlbum
+        function requestFrameSystemAlbumOrTakePhoto() {
+            window.webkit.messageHandlers.iOS.postMessage("CameraAndPhotoAlbum");
+        }
+        
+        // 3. 语音输入调用
+        function requestFrameSystemVoiceInput() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemVoiceInput");
+        }
+        
+        // 4. 视频录制调用
+        // 备注：调用系统的视频资料库和视频录制功能: SystemVideoRecordAndLibrary,调用视频录制功能：SystemVideoRecord,调用视频资料库功能：SystemVideoLibrary
+        function requestFrameSystemVideoRecordAndLibrary() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemVideoRecordAndLibrary");
+        }
+        
+        // 5. 二维码扫描调用
+        function requestFrameQRCodeScanResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemQRCodeScan");
+        }
+        
+        // 6.1 调节系统音量变大调用
+        function requestFrameControlVoiceUpResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemControlVoiceUp");
+        }
+        
+        // 6.2 调节系统音量变小调用
+        function requestFrameControlVoiceDownResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemControlVoiceDown");
+        }
+        
+        // 7.1 调节屏幕亮度变亮调用
+        function requestFrameControlScreenBrightnessUpResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemControlScreenBrightnessUp");
+        }
+        
+        // 7.2 调节屏幕亮度变暗调用
+        function requestFrameControlScreenBrightnessDownResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemControlScreenBrightnessDown");
+        }
+        
+        // 8. 获取设备信息调用
+        function requestFrameDeviceInformationResult() {
+            window.webkit.messageHandlers.iOS.postMessage("SystemDeviceInformation");
+        }
+        
+        
+        
+        /***** 框架response调用方法 ********/
+        /**
+         *  1. 定位成功回调
+         * @param longitude 经度
+         * @param latitude  纬度
+         * @param address 定位详细地址
+         * @param province 省
+         * @param city 市
+         * @param county 区县
+         * @param street 街道
+         */
+        function getLocationFeedback(longitude, latitude, address, province, city, county, street) {
+            alert(longitude + "~~~" + latitude + "~~~" + address + "省：" + province + "市：" + city + "区县：" + county + "街道：" + street);
+        }
+        
+        
+        ///2.  拍照或相册获取图片
+        /**
+         * 系统相册、拍照等功能选中的图片回调
+         *
+         * @param editImage 视频缩略图（Base64格式）
+         * @param createTime 视频创建时间
+         */
+        function getSystemAlbumOrTakePhoto(editImage, createTime) {
+            if (!editImage) {
+                alert("无效的base64编码");
+                return;
+            }
+            document.write("<img src='data:image/png;base64,"+ editImage +"' width='80%' height='auto'/>");
+            document.write("<p>创建时间："+ createTime +"</p>");
+        }
+        
+        
+        ///3. 语音输入调用
+        /**
+         * 语音输入识别成功后回调
+         *
+         * @param createTime 语音识别成文字的信息
+         */
+        function getSystemVoiceInputWithText(recoText) {
+            // 识别的字符串
+            alert("识别信息：" + recoText);
+        }
+        
+        
+        ///4. 视频录制调用
+        /**
+         * 视频返回函数回调
+         *
+         * @param createTime 视频创建时间
+         * @param duration 视频时长（单位：秒）
+         * @param size 视频大小（单位 B）
+         * @param thumbImg 视频缩略图（Base64格式）
+         * @param videoPath 视频的本地存储地址
+         */
+        function getSystemVideoRecordAndLibraryWithTime(createTime, duration, size, thumbImg, videoPath) {
+            
+            // alert("createTime:" + createTime +
+            //        "\nduration:" + duration +
+            //        "\nsize:" + size +
+            //       "\nthumb is true:" + thumbImg == null ? "false" : "true" +
+            //       "\nvideoPath:" + videoPath);
+            
+            // 视频缩略图
+            document.write("<img src='data:image/png;base64,"+ thumbImg +"' width='50%' height='auto'/>");
+            // 创建时间
+            var newDate = new Date();
+            newDate.setTime(createTime * 1000);
+            document.write("<p>创建时间："+ newDate.format('yyyy-MM-dd hh:mm:ss') +"</p>");
+            // 视频时长
+            document.write("<p>视频时长（秒）："+ duration +"</p>");
+            // 视频大小
+            document.write("<p>视频大小（B）："+ size +"</p>");
+            // 视频本地存储地址
+            document.write("<p>视频本地存储地址："+ videoPath +"</p>");
+            // 视频播放
+            document.write("<video src='" + videoPath + "' width='320' height='auto' controls='controls' loop='loop' autoplay='autoplay'></video>");
+        }
+        
+        
+        ///5. 二维码扫描调用 SystemQRCodeScan
+        /**
+         * 二维码扫描回调
+         *
+         * @param resultStr 扫描结果
+         */
+        function getSystemQRCodeScanResult(resultStr) {
+            alert("扫描结果：" + resultStr);
+        }
+        
+        
+        ///6. 调节系统音量调用 SystemControlVoice
+        /**
+         * 调节系统音量回调
+         *
+         * @param resultStr 结果
+         */
+        function getSystemControlVoiceResult(resultStr) {
+        }
+        
+        ///7. 调节屏幕亮度调用 SystemControlScreenBrightness
+        /**
+         * 调节屏幕亮度回调
+         *
+         * @param resultStr 结果
+         */
+        function getSystemControlScreenBrightnessResult(resultStr) {
+        }
+        
+        
+        ///8. 获取设备信息调用 SystemDeviceInformation
+        /**
+         * 获取设备信息回调
+         *
+         * @param resultStr 结果
+         */
+        function getSystemDeviceInformationResult(resultStr) {
+            alert("结果：" + resultStr);
+        }
+        
+        
+        
+        
+        // 时间格式转换方法
+        Date.prototype.format = function(format) {
+            var date = {
+                "M+": this.getMonth() + 1,
+                "d+": this.getDate(),
+                "h+": this.getHours(),
+                "m+": this.getMinutes(),
+                "s+": this.getSeconds(),
+                "q+": Math.floor((this.getMonth() + 3) / 3),
+                "S+": this.getMilliseconds()
+            };
+            if (/(y+)/i.test(format)) {
+                format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+            }
+            for (var k in date) {
+                if (new RegExp("(" + k + ")").test(format)) {
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                                            ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+                }
+            }
+            return format;
+        }
+            
         </script>
     </head>
     
-    <body>
+    <body style="text-align:center">
     	
-        <button id="bid" type="button" onclick="getValueTest()"  style="width:300px; height:64px">Click Me!</button>
+        <p><button type="button" onclick="requestFrameLocation()"  style="font-size:20px;  width:300px; height:64px">获取定位信息</button></p>
+        
+        <p><button type="button" onclick="requestFrameSystemAlbumOrTakePhoto()"  style="font-size:20px; width:300px; height:64px">拍照或相册获取图片</button></p>
+        
+        <p><button type="button" onclick="requestFrameSystemVoiceInput()"  style="font-size:20px; width:300px; height:64px">语音输入</button></p>
+        
+        <p><button type="button" onclick="requestFrameSystemVideoRecordAndLibrary()"  style="font-size:20px; width:300px; height:64px">视频录制</button></p>
+        
+        <p><button type="button" onclick="requestFrameQRCodeScanResult()"  style="font-size:20px; width:300px; height:64px">二维码扫描</button></p>
+        
+        <p><button type="button" onclick="requestFrameControlVoiceUpResult()"  style="font-size:20px; width:130px; height:64px">音量+</button>
+            <button type="button" onclick="requestFrameControlVoiceDownResult()"  style="font-size:20px; width:130px; height:64px">音量-</button>
+        </p>
+        
+        <p><button type="button" onclick="requestFrameControlScreenBrightnessUpResult()"  style="font-size:20px; width:130px; height:64px">亮度+</button>
+            <button type="button" onclick="requestFrameControlScreenBrightnessDownResult()"  style="font-size:20px; width:130px; height:64px">亮度-</button>
+        </p>
+        
+        <p><button type="button" onclick="requestFrameDeviceInformationResult()"  style="font-size:20px; width:300px; height:64px">获取设备信息</button></p>
+        
     </body>
 </html>

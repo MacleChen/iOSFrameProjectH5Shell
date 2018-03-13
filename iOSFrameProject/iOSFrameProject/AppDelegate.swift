@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let functionStartsLocalize: FunctionStartsLocalize = FunctionStartsLocalize.init()
+        let info = functionStartsLocalize.settingGDDTKey()
+        
+        myPrint(message: info);
+        
         return true
     }
 

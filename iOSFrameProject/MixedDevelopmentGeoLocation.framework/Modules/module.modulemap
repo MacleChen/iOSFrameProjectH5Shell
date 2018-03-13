@@ -1,0 +1,6 @@
+framework module MixedDevelopmentGeoLocation {
+  umbrella header "MixedDevelopmentGeoLocation.h"
+
+  export *
+  module * { export * }
+}
