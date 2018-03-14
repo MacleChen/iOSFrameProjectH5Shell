@@ -142,7 +142,8 @@ let NOTIFICATION_UPDATE_CoinTaskUpdate = "NotificationCoinTaskupdate"   // 碳�
 
 
 /**************   ACCOUNT - 账户信息    ****************/
-let REQUEST_URL_INIT = "https://www.baidu.com"
+//"https://www.baidu.com"   "http://www.ctcenv.com/edps-app/"
+let REQUEST_URL_INIT =  "https://www.baidu.com"
 
 
 /*****************   CHARACTER 字符个数     ******************/
