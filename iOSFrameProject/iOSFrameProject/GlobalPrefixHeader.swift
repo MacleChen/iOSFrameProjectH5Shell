@@ -142,8 +142,8 @@ let NOTIFICATION_UPDATE_CoinTaskUpdate = "NotificationCoinTaskupdate"   // 碳�
 
 
 /**************   ACCOUNT - 账户信息    ****************/
-//"https://www.baidu.com"   "http://www.ctcenv.com/edps-app/"
-let REQUEST_URL_INIT =  "https://www.baidu.com"
+//"https://www.baidu.com"   "http://www.ctcenv.com/edps-app/"  “http://www.ctcenv.com:8880”
+let REQUEST_URL_INIT =  "http://www.ctcenv.com:8880"
 
 
 /*****************   CHARACTER 字符个数     ******************/

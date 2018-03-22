@@ -47,6 +47,7 @@ class WKWebPageViewController: UIViewController, WKUIDelegate, WKNavigationDeleg
         configuretion.userContentController.add(self, name: "iOS")
         
         let webViewTemp = WKWebView.init(frame: CGRect.init(x: 0, y: STATUS_BAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-STATUS_BAR_HEIGHT), configuration: configuretion)
+        webViewTemp.scrollView.bounces = false
         
         webViewTemp.uiDelegate = self
         webViewTemp.navigationDelegate = self
@@ -90,7 +91,7 @@ class WKWebPageViewController: UIViewController, WKUIDelegate, WKNavigationDeleg
     fileprivate lazy var progressView: UIProgressView = {
         let progressViewTemp = UIProgressView.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 3))
         progressViewTemp.trackTintColor = UIColor.clear
-        progressViewTemp.progressTintColor = UIColorFromRGB(rgbValue: 0x52afad)
+        progressViewTemp.progressTintColor = UIColorFromRGB(rgbValue: 0xffffff)
         progressViewTemp.transform = CGAffineTransform(scaleX: 1.0, y: 1.5)
         
         return progressViewTemp

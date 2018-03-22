@@ -21,19 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dv0-Va-b84">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fvr-Tx-Iak">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="status_bar_bg" translatesAutoresizingMaskIntoConstraints="NO" id="a91-9T-ykY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="gsr-hR-LR2"/>
+                                    <constraint firstAttribute="height" constant="20" id="U9g-tH-A88"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dv0-Va-b84" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2tY-Yr-vix"/>
-                            <constraint firstAttribute="trailing" secondItem="dv0-Va-b84" secondAttribute="trailing" id="HA6-Qb-Tav"/>
-                            <constraint firstItem="dv0-Va-b84" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nmK-wm-d5F"/>
+                            <constraint firstItem="a91-9T-ykY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0lD-YC-vwn"/>
+                            <constraint firstItem="a91-9T-ykY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5td-3s-QG2"/>
+                            <constraint firstItem="fvr-Tx-Iak" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="811-Ib-p7Y"/>
+                            <constraint firstItem="fvr-Tx-Iak" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9P4-3A-Wa5"/>
+                            <constraint firstAttribute="trailing" secondItem="a91-9T-ykY" secondAttribute="trailing" id="VuH-B2-WSO"/>
+                            <constraint firstAttribute="trailing" secondItem="fvr-Tx-Iak" secondAttribute="trailing" id="Vxo-6u-HW7"/>
+                            <constraint firstItem="VyT-gG-pCl" firstAttribute="top" secondItem="fvr-Tx-Iak" secondAttribute="bottom" id="fnx-3m-VqD"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,4 +48,8 @@
             <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchLogo" width="1440" height="2560"/>
+        <image name="status_bar_bg" width="750" height="40"/>
+    </resources>
 </document>
