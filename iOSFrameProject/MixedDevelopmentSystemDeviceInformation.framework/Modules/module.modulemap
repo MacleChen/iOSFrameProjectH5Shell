@@ -1,0 +1,6 @@
+framework module MixedDevelopmentSystemDeviceInformation {
+  umbrella header "MixedDevelopmentSystemDeviceInformation.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module MixedDevelopmentVoiceLightness {
+  umbrella header "MixedDevelopmentVoiceLightness.h"
+
+  export *
+  module * { export * }
+}

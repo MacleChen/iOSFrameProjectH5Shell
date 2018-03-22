@@ -1,0 +1,6 @@
+framework module MixedDevelopmentSystemVideoRecord {
+  umbrella header "MixedDevelopmentSystemVideoRecord.h"
+
+  export *
+  module * { export * }
+}

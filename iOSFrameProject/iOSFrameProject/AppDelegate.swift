@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        let functionStartsLocalize: FunctionStartsLocalize = FunctionStartsLocalize.init()
+        let info = functionStartsLocalize.settingGDDTKey()
+        
+        myPrint(message: info);
+      
         return true
     }
 

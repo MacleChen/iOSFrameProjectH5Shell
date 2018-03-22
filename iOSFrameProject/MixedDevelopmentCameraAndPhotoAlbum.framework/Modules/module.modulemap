@@ -1,0 +1,6 @@
+framework module MixedDevelopmentCameraAndPhotoAlbum {
+  umbrella header "MixedDevelopmentCameraAndPhotoAlbum.h"
+
+  export *
+  module * { export * }
+}

@@ -209,22 +209,6 @@ func UIColorFromRGB(rgbValue:Int) -> UIColor {
 }
 
 
-
-
-
-
-
-
-/// 自定义简单的打印
-///
-/// - parameter message: message
-func myPrint<T>(message: T) {
-    #if DEBUG
-        print("info:\(message)")
-    #endif
-}
-
-
 /// 获取默认的图片对象
 ///
 /// - Returns: 默认占位图片

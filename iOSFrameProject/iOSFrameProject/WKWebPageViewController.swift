@@ -9,8 +9,13 @@
 import UIKit
 import WebKit
 
+
+
 class WKWebPageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler {
-    
+    fileprivate var systemCameraAlbum: FunctionSystemCameraAlbum?
+    fileprivate var systemVoiceInput: FunctionSystemVoiceInput?
+    fileprivate var systemVideo: FunctionSystemVideoRec?
+    fileprivate var systemVoiceAndLight: FunctionSystemVoiceLightness?
     
     var localPageUrlFilePath: String?   // 本地html的路径地址
     var pageUrlStr: String?         // 页面URL
@@ -102,7 +107,10 @@ class WKWebPageViewController: UIViewController, WKUIDelegate, WKNavigationDeleg
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        self.systemCameraAlbum = FunctionSystemCameraAlbum.init()
+        self.systemVoiceInput = FunctionSystemVoiceInput.init(configationFileName: "AppInfoSet.plist")
+        self.systemVideo = FunctionSystemVideoRec.init()
+        self.systemVoiceAndLight = FunctionSystemVoiceLightness.init(webView: self.webView)
         
         self.setViewUI()
     }
@@ -189,12 +197,98 @@ class WKWebPageViewController: UIViewController, WKUIDelegate, WKNavigationDeleg
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         myPrint(message: "body =\(message.body), name=\(message.name)")
         let bodyStr = message.body as! String
-        if (bodyStr == "SystemDeviceInformation") {
-            let alert = UIAlertController.init(title: "提示", message: "请求：SystemDeviceInformation", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
-            
-            self.present(alert, animated: true, completion: nil)
+        switch bodyStr {
+        case "GDDTASingleLocalize":         // 地图定位
+            myPrint(message: "GDDTASingleLocalize")
+            let functionStartsLocalize: FunctionStartsLocalize = FunctionStartsLocalize.init()
+            functionStartsLocalize.classificationStart(self.webView, bodyStr)
+        case "CameraAndPhotoAlbum":         // 拍照或相册选择
+            myPrint(message: "CameraAndPhotoAlbum")
+            self.systemCameraAlbum?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "照片选择", andType: .all)
+        case "SystemCamera":                // 拍照
+            myPrint(message: "SystemCamera")
+            self.systemCameraAlbum?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "", andType: .camera)
+        case "SystemPhotoAlbum":            // 图片相册选择
+            myPrint(message: "SystemPhotoAlbum")
+            self.systemCameraAlbum?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "", andType: .album)
+        case "SystemVoiceInput":            // 语音识别
+            myPrint(message: "SystemVoiceInput")
+            self.systemVoiceInput?.start(with: self.webView)
+        case "SystemVideoRecordAndLibrary": // 视频录制和相册选择
+            myPrint(message: "SystemVideoRecordAndLibrary")
+            self.systemVideo?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "视频选择", andType: .recordAndLibrary)
+        case "SystemVideoRecord":   // 视频录制
+            myPrint(message: "SystemVideoRecord")
+            self.systemVideo?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "", andType: .record)
+        case "SystemVideoLibrary":  // 视频相册选择
+            myPrint(message: "SystemVideoLibrary")
+            self.systemVideo?.setSystemCameraAlbumWithCurrentVC(self, andWebView: self.webView, andTitle: "", andType: .library)
+        case "SystemQRCodeScan":    // 二维码扫描
+            myPrint(message: "SystemQRCodeScan")
+            let scanQRViewController = ScanQRViewController.init(webView: self.webView, andTitle: "二维码扫一扫", andTitleColor: UIColor.darkGray, andTitleBgColor: UIColor.white)
+            self.present(scanQRViewController!, animated: true, completion: nil)
+        case "SystemControlVoiceUp":  // 调节音量变大
+            myPrint(message: "SystemControlVoiceUp")
+            systemVoiceAndLight?.turnUpVoice(withAnimation: true)
+        case "SystemControlVoiceDown":  // 调节音量变小
+            myPrint(message: "SystemControlVoiceDown")
+            systemVoiceAndLight?.turnDownVoice(withAnimation: true)
+        case "SystemControlScreenBrightnessUp":  // 调节屏幕亮度变亮
+            myPrint(message: "SystemControlScreenBrightnessUp")
+            systemVoiceAndLight?.turnUp()
+        case "SystemControlScreenBrightnessDown":  // 调节屏幕亮度变暗
+            myPrint(message: "SystemControlScreenBrightnessDown")
+            systemVoiceAndLight?.turnDownLightness()
+        case "SystemDeviceInformation":  // 获取设备信息
+            myPrint(message: "SystemDeviceInformation")
+            let deviceInfo = FunctionSystemDeviceInfo.init(webView: self.webView)
+            deviceInfo?.getCurrentDeviceInformation()
+        default:
+            print("该功能暂未开放")
         }
+    }
+    
+    
+    /**
+     *  Alert弹框
+     */
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        
+        let alert = UIAlertController.init(title: message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "好的", style: UIAlertActionStyle.default, handler: { (alertAction) in
+            completionHandler()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    /**
+     *  confirm弹框
+     */
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alert = UIAlertController.init(title: message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default, handler: { (alertAction) in
+            completionHandler(true)
+        }))
+        alert.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.default, handler: { (alertAction) in
+            completionHandler(false)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    /**
+     *  TextInput弹框
+     */
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alert = UIAlertController.init(title: prompt, message: defaultText, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField { (textField) in
+            textField.textColor = UIColor.red
+        }
+        alert.addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default, handler: { (alertAction) in
+            completionHandler(alert.textFields?.last?.text)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -231,8 +325,8 @@ extension WKWebPageViewController {
     func setViewUI() {
         // 设置 webView
         let request: URLRequest?
-        self.pageUrlStr = REQUEST_URL_INIT
-//        self.localPageUrlFilePath = Bundle.main.path(forResource: "testButton.html", ofType: nil)
+//        self.pageUrlStr = REQUEST_URL_INIT
+        self.localPageUrlFilePath = Bundle.main.path(forResource: "testButton.html", ofType: nil)
         if self.localPageUrlFilePath == nil {
             // 加载网页
             request = URLRequest.init(url: URL.init(string: self.pageUrlStr!)!)
@@ -255,6 +349,7 @@ extension WKWebPageViewController {
         self.view.addSubview(self.progressView)
         // 添加KVO进度加载方法
         self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        
     }
     
     
